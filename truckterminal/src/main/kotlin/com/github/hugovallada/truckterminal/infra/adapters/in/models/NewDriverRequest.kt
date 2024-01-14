@@ -1,13 +1,9 @@
-package com.github.hugovallada.truckterminal.core.entity
+package com.github.hugovallada.truckterminal.infra.adapters.`in`.models
 
-import jakarta.validation.Valid
-import jakarta.validation.constraints.Min
-import jakarta.validation.constraints.NotBlank
-import jakarta.validation.constraints.Positive
-import jakarta.validation.constraints.Size
+import jakarta.validation.constraints.*
 
-@Suppress("LongParameterList")
-class Driver(
+
+data class NewDriverRequest(
     @field:NotBlank(message = "The driver name can't be blank")
     @field:Size(min = 3, message = "The driver name can't be less than 3 characters")
     val name: String,
@@ -16,20 +12,19 @@ class Driver(
     @field:Min(value = 18, message = "The driver can't be younger than 18 years older")
     val age: Int,
 
-    val gender: Gender,
+    @field:Pattern(regexp = "MALE|FEMALE|OTHER", flags = [Pattern.Flag.CASE_INSENSITIVE])
+    val gender: String,
 
-    val hasTruck: Boolean,
+    val hasVehicle: Boolean,
 
     @field:NotBlank(message = "The driver must have a license type")
     val driverLicenseType: String,
 
     val isLoaded: Boolean,
 
-    val truckType: TruckType,
+    val vehicleTypeCode: Int,
 
-    @Valid
-    val from: Location,
-
-    @Valid
-    val to: Location
+    val from: Set<String>,
+    val to: Set<String>
 )
+
