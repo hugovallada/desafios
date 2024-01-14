@@ -32,6 +32,9 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")
     runtimeOnly("org.postgresql:postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("io.mockk:mockk:1.13.9")
+    testImplementation("org.instancio:instancio-junit:4.0.0")
+    testImplementation("org.assertj:assertj-core:3.4.1")
 }
 
 tasks.withType<KotlinCompile> {
