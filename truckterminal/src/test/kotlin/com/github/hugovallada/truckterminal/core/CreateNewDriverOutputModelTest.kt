@@ -2,8 +2,8 @@ package com.github.hugovallada.truckterminal.core
 
 import com.github.hugovallada.truckterminal.core.entity.Driver
 import com.github.hugovallada.truckterminal.core.mocks.NewDriverMockFactory
-import com.github.hugovallada.truckterminal.core.ports.`in`.CreateNewDriverInputPort
 import com.github.hugovallada.truckterminal.core.ports.`in`.models.NewDriver
+import com.github.hugovallada.truckterminal.core.ports.out.CreateNewDriverOutputPort
 import io.mockk.*
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
@@ -18,10 +18,10 @@ import org.junit.jupiter.api.extension.ExtendWith
 
 
 @ExtendWith(MockKExtension::class)
-class CreateNewDriverTest {
+class CreateNewDriverOutputModelTest {
 
     @MockK
-    private lateinit var createNewDriverInputPort: CreateNewDriverInputPort
+    private lateinit var createNewDriverOutputPort: CreateNewDriverOutputPort
 
     @MockK
     private lateinit var validator: Validator
@@ -40,7 +40,7 @@ class CreateNewDriverTest {
         // Arrange
         val newDriver = NewDriverMockFactory.createDriver()
         every { validator.validate(any<Driver>()) } returns setOf()
-        every { createNewDriverInputPort.execute(any<NewDriver>()) } just runs
+        every { createNewDriverOutputPort.execute(any<NewDriver>()) } just runs
 
         // Act
         createNewDriver.execute(newDriver)
@@ -48,7 +48,7 @@ class CreateNewDriverTest {
         // Assert
         verifySequence {
             validator.validate(any<Driver>())
-            createNewDriverInputPort.execute(any<NewDriver>())
+            createNewDriverOutputPort.execute(any<NewDriver>())
         }
     }
 
@@ -70,7 +70,7 @@ class CreateNewDriverTest {
             validator.validate(any(Driver::class))
         }
         verify(exactly = 0) {
-            createNewDriverInputPort.execute(any(NewDriver::class))
+            createNewDriverOutputPort.execute(any(NewDriver::class))
         }
     }
 
