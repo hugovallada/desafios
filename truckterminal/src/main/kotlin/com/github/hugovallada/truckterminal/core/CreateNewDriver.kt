@@ -8,8 +8,10 @@ import com.github.hugovallada.truckterminal.core.ports.out.CreateNewDriverOutput
 import com.github.hugovallada.truckterminal.core.util.validate
 import jakarta.inject.Named
 import jakarta.validation.Validator
+import org.jmolecules.architecture.hexagonal.Application
 
 @Named
+@Application
 class CreateNewDriver(
     private val validator: Validator,
     private val createNewDriverOutputPort: CreateNewDriverOutputPort

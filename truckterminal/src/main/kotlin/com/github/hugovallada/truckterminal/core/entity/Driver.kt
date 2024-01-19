@@ -5,8 +5,10 @@ import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Positive
 import jakarta.validation.constraints.Size
+import org.jmolecules.ddd.annotation.Entity
 
 @Suppress("LongParameterList")
+@Entity
 class Driver(
     @field:NotBlank(message = "The driver name can't be blank")
     @field:Size(min = 3, message = "The driver name can't be less than 3 characters")

@@ -4,6 +4,7 @@ import com.github.hugovallada.truckterminal.core.ports.`in`.CreateNewDriverUseCa
 import com.github.hugovallada.truckterminal.infra.adapters.`in`.models.NewDriverRequest
 import com.github.hugovallada.truckterminal.infra.adapters.`in`.models.adapters.adaptToNewDriver
 import jakarta.validation.Valid
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/trucks")
+@PrimaryAdapter
 class CreateNewDriverController(private val createNewDriver: CreateNewDriverUseCase) {
 
     @PostMapping
