@@ -24,7 +24,10 @@ data class NewDriverRequest(
 
     val vehicleTypeCode: Int,
 
+    @field:Size(min = 2, max = 2)
     val from: Set<String>,
+
+    @field:Size(min = 2, max = 2)
     val to: Set<String>
 )
 

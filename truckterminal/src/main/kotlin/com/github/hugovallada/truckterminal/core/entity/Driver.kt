@@ -32,4 +32,9 @@ class Driver(
 
     @Valid
     val to: Location
-)
+) {
+    override fun toString(): String {
+        return "Driver(name='$name', age=$age, gender=$gender, hasTruck=$hasTruck, " +
+                "driverLicenseType='$driverLicenseType', isLoaded=$isLoaded, truckType=$truckType, from=$from, to=$to)"
+    }
+}

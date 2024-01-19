@@ -7,8 +7,8 @@ data class Location(@field:NotBlank val lat: String, @field:NotBlank val long: S
     companion object {
         fun of(values: Set<String>): Location {
             require(values.size == 2) {
-                "There's more attributes than expected. " +
-                        "Location should have only latitude and longitude"
+                "There's should be 2 attributes. " +
+                        "Location should have latitude and longitude"
             }
             return Location(values.elementAt(0), values.elementAt(1))
         }
