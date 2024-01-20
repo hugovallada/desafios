@@ -1,5 +1,8 @@
 package com.github.hugovallada.truckterminal.core.entity
 
+import org.jmolecules.ddd.annotation.ValueObject
+
+@ValueObject
 enum class Gender {
     MALE,
     FEMALE,

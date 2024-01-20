@@ -1,6 +1,9 @@
 package com.github.hugovallada.truckterminal.core.entity
 
+import org.jmolecules.ddd.annotation.ValueObject
+
 @Suppress("MagicNumber")
+@ValueObject
 enum class TruckType(val code: Int) {
     TRUCK_3_4(1),
     WOOD_TRUCK(2),

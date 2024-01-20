@@ -1,8 +1,10 @@
 package com.github.hugovallada.truckterminal.core.entity
 
 import jakarta.validation.constraints.NotBlank
+import org.jmolecules.ddd.annotation.ValueObject
 
 
+@ValueObject
 data class Location(@field:NotBlank val lat: String, @field:NotBlank val long: String) {
     init {
         require(!lat.contains(",") && !long.contains(",")) {
