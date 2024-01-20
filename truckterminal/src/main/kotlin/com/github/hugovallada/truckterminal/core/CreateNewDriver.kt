@@ -22,4 +22,5 @@ class CreateNewDriver(
         createNewDriverOutputPort.execute(DriverAdapter.toNewDriverOutputModel(driver))
     }
 
+
 }

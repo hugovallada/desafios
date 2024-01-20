@@ -1,9 +1,7 @@
 package com.github.hugovallada.truckterminal.core.entity
 
 import jakarta.validation.Valid
-import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotBlank
-import jakarta.validation.constraints.Positive
 import jakarta.validation.constraints.Size
 import org.jmolecules.ddd.annotation.Entity
 
@@ -14,9 +12,8 @@ class Driver(
     @field:Size(min = 3, message = "The driver name can't be less than 3 characters")
     val name: String,
 
-    @field:Positive(message = "The driver age can't be negative")
-    @field:Min(value = 18, message = "The driver can't be younger than 18 years older")
-    val age: Int,
+    @field:Valid
+    val age: Age,
 
     val gender: Gender,
 
@@ -29,14 +26,14 @@ class Driver(
 
     val truckType: TruckType,
 
-    @Valid
+    @field:Valid
     val from: Location,
 
-    @Valid
+    @field:Valid
     val to: Location
 ) {
     override fun toString(): String {
-        return "Driver(name='$name', age=$age, gender=$gender, hasTruck=$hasTruck, " +
+        return "Driver(name='$name', age=${age.value}, gender=$gender, hasTruck=$hasTruck, " +
                 "driverLicenseType='$driverLicenseType', isLoaded=$isLoaded, truckType=$truckType, from=$from, to=$to)"
     }
 }

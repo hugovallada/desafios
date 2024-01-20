@@ -9,7 +9,7 @@ object DriverAdapter {
     fun toNewDriver(driver: Driver): NewDriver {
         return NewDriver(
             name = driver.name,
-            age = driver.age,
+            age = driver.age.value,
             gender = driver.gender.name,
             hasVehicle = driver.hasTruck,
             driverLicenseType = driver.driverLicenseType,
@@ -23,7 +23,7 @@ object DriverAdapter {
     fun toNewDriverOutputModel(driver: Driver): NewDriverOutputModel {
         return NewDriverOutputModel(
             name = driver.name,
-            age = driver.age,
+            age = driver.age.value,
             gender = driver.gender.name,
             hasVehicle = driver.hasTruck,
             driverLicenseType = driver.driverLicenseType,
