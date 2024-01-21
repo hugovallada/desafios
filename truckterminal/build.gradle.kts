@@ -32,6 +32,8 @@ dependencies {
     implementation("org.jmolecules:jmolecules-ddd:1.9.0")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")
+    implementation("org.eclipse.collections:eclipse-collections:11.1.0")
+    implementation("org.eclipse.collections:eclipse-collections-api:11.1.0")
     runtimeOnly("org.postgresql:postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.mockk:mockk:1.13.9")

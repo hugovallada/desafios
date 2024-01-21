@@ -5,4 +5,8 @@ import org.jmolecules.ddd.annotation.Repository
 import org.springframework.data.jpa.repository.JpaRepository
 
 @Repository
-interface DriverRepository : JpaRepository<DriverEntity, Long>
+interface DriverRepository : JpaRepository<DriverEntity, Long> {
+
+    fun findAllByIsLoaded(isLoaded: Boolean): List<DriverEntity>
+
+}

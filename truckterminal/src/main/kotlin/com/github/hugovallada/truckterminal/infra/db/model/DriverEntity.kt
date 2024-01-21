@@ -1,6 +1,7 @@
 package com.github.hugovallada.truckterminal.infra.db.model
 
 import jakarta.persistence.*
+import java.time.LocalDate
 
 @Entity
 @Suppress("LongParameterList")
@@ -18,5 +19,6 @@ class DriverEntity(
     @Column(name = "tb_from")
     val from: String,
     @Column(name = "tb_to")
-    val to: String
+    val to: String,
+    val date: LocalDate = LocalDate.now()
 )
