@@ -9,4 +9,6 @@ interface DriverRepository : JpaRepository<DriverEntity, Long> {
 
     fun findAllByIsLoaded(isLoaded: Boolean): List<DriverEntity>
 
+    fun findAllByHasVehicle(hasVehicle: Boolean): List<DriverEntity>
+
 }
